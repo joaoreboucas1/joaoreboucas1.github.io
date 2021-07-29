@@ -1,5 +1,6 @@
 
 ---
+layout: default
 title: João Victor Silva Rebouças
 ---
 
