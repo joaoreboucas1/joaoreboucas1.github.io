@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact - João Rebouças</title>
+        <link rel="stylesheet" href="../assets/css/styles.css">
+    </head>
+    <body class="pages">
+        <div style="text-align: left; margin: 20px 0;">
+            <a href="../index.html" style="background: #4a5e6a; color: #ffffff; text-decoration: none; padding: 10px 15px; display: inline-block;">
+                < Back to Home
+            </a>
+        </div>
+        <h1>Contact Me</h1>
+        <p>If you have any questions or would like to get in touch, please feel free to reach out!</p>
+        <h2>Email</h2>
+        <p>You can contact me at: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        
+        <h2>Contact Form</h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Send Message">
+        </form>
+    </body>
+</html>
