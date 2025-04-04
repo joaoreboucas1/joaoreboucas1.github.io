@@ -26,6 +26,7 @@ html, body {
     height: 100%;
     margin: 0;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 }
 
@@ -93,12 +94,19 @@ main {
     font-size: 1.2em;
     margin-left:  30%;
     margin-right: 30%;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: space-between; /* Distribute space evenly between children */
+    align-items: center; /* Center items horizontally */
+    margin: 0; /* Remove margins for proper alignment */
 }
 
 main .index-content {
     /* Div that contains the picture and the text below */
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
     max-width: 500px;
     margin: 0 auto;
     text-align: justify;
@@ -112,9 +120,16 @@ main .index-content .profile-pic {
     margin: 0 auto;
 }
 
-main p {
-    width: 100%; /* Ensure the paragraph matches the container's width */
+main .main-text {
     color: #181818;
+    margin: 0;
+}
+
+main .caption {
+    font-size: 0.8em;
+    margin-bottom: 20px;;
+    color: #ABABAB;
+    text-align: center;
 }
 
 footer {
