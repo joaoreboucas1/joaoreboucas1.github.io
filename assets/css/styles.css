@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Light.otf') format('opentype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.otf') format('opentype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Semibold.otf') format('opentype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Black.otf') format('opentype');
+    font-weight: 900;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -6,7 +30,8 @@ html, body {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
     line-height: 1.6;
     padding: 0;
     background-color: #f4f4f4;
@@ -17,6 +42,10 @@ header {
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
+}
+
+header h1 {
+    font-weight: 600;
 }
 
 h1, h2, h3 {
@@ -61,29 +90,43 @@ nav a:hover {
 
 main {
     flex: 1; /* This pushes the footer to the bottom */
+    font-size: 1.2em;
+    margin-left:  30%;
+    margin-right: 30%;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-main h2 {
-    color: #4a5e6a;
-    text-align: center; /* Centers the text horizontally */
-    margin-top: 20px; /* Optional: Add some spacing above */
+main .index-content {
+    /* Div that contains the picture and the text below */
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+main .index-content .profile-pic {
+    width: 100%; /* Make the image take the full width of the container */
+    max-width: 100%; /* Prevent the image from exceeding the container's width */
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
 }
 
 main p {
+    width: 100%; /* Ensure the paragraph matches the container's width */
     color: #181818;
-    text-align: center; /* Centers the text horizontally */
-    margin-left:  30px; /* Optional: Add some spacing above */
-    margin-right: 30px; /* Optional: Add some spacing above */
 }
 
 footer {
     background: #35424a;
     color: #ffffff;
     text-align: center;
-    padding: 10px 0;
+    /* padding: 20px 0; */
     position: relative;
     bottom: 0;
     width: 100%;
+    margin-top: 0px;
+    font-size: 0.9em; /* Increase the font size */
 }
 
 footer a {
@@ -95,34 +138,52 @@ footer a {
     transition: transform 0.3s ease; /* Add a smooth zoom effect on hover */
 }
 
-/* Specific styles for the pages */
-.pages h1 {
-    color: #4a5e6a; /* Change the color of the main heading */
-    margin-left: 20px; /* Add spacing below the heading */
-}
-
-.pages h2 {
-    color: #4a5e6a; /* Change the color of the main heading */
-    margin-left: 40px; /* Add spacing below the heading */
-}
-
-.pages p, .pages ul, .pages form {
-    color: #181818; /* Change the color of the text */
-    margin-left: 30px; /* Add spacing between paragraphs and lists */
-}
-
-.about h1 {
+/* Specific styles for the research page */
+.research h1, h2 {
+    font-weight: 600;
+    font-size: 3em;
     color: #4a5e6a; /* Change the color of the text */
-    margin-left: 30px; /* Add spacing between paragraphs and lists */
     text-align: center;
 }
 
-.about p {
-    color: #181818; /* Change the color of the text */
-    margin-left:  300px; /* Add spacing between paragraphs and lists */
-    margin-right: 300px; /* Add spacing between paragraphs and lists */
+.research h1 {
+    margin: 0% auto 1% auto;
 }
 
+.research h2 {
+    font-size: 2em;
+    margin: 25px auto;
+}
+
+.research p, .research ul, .research form {
+    font-size: 1.15em;
+    font-weight: 400;
+    text-align: justify;
+    color: #181818; /* Change the color of the text */
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* Specific styles for the about page */
+
+.about h1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: #4a5e6a; /* Change the color of the text */
+    text-align: center;
+    margin: 0% auto 1% auto;
+}
+
+.about p {
+    font-size: 1.15em;
+    font-weight: 400;
+    text-align: justify;
+    color: #181818; /* Change the color of the text */
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Styles for the back to home button, common to research and about */
 .back a {
     background: #4a5e6a; /* Default background color */
     color: #ffffff; /* Default text color */
