@@ -39,18 +39,14 @@ body {
 }
 
 header {
-    background: #35424a;
-    color: #ffffff;
     padding: 10px 0;
-    text-align: center;
 }
 
 header h1 {
+    text-align: left;
+    margin-left: 10%;
+    color: #35424a;
     font-weight: 600;
-}
-
-h1, h2, h3 {
-    color: #ffffff;
 }
 
 nav {
@@ -68,14 +64,10 @@ nav a {
 header nav ul {
     list-style: none; /* Remove bullet points */
     padding: 0;
-    margin: 0;
+    margin-left: 10%;
     display: flex; /* Arrange items in a horizontal row */
-    justify-content: center; /* Center the items */
+    justify-content: left; /* Center the items */
     gap: 15px; /* Add spacing between items */
-}
-
-header nav ul li {
-    margin: 0; /* Adds space between list items */
 }
 
 nav a:hover {
@@ -83,53 +75,33 @@ nav a:hover {
     color: #ffffff;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+.background-image {
+    background:
+        url('../images/background.png') no-repeat center center,
+        linear-gradient(to left, #e3e0d1 50%, #d1cebb 50%); /* Gradient layer */
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /* Make the div cover the full viewport height */
+    box-sizing: border-box; /* Include padding and border in height calculations */
 }
 
 main {
     flex: 1; /* This pushes the footer to the bottom */
     font-size: 1.2em;
-    margin-left:  30%;
-    margin-right: 30%;
+    margin-left:  10%;
     display: flex; /* Enable Flexbox */
     flex-direction: column; /* Arrange children vertically */
-    justify-content: space-between; /* Distribute space evenly between children */
-    align-items: center; /* Center items horizontally */
-    margin: 0; /* Remove margins for proper alignment */
-}
-
-main .index-content {
-    /* Div that contains the picture and the text below */
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: justify;
-}
-
-main .index-content .profile-pic {
-    width: 100%; /* Make the image take the full width of the container */
-    max-width: 100%; /* Prevent the image from exceeding the container's width */
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
+    justify-content: left;
 }
 
 main .main-text {
+    background-color: rgba(227, 224, 209, 0.7);
     color: #181818;
+    text-align: justify;
+    max-width: 30%;
     margin: 0;
-}
-
-main .caption {
-    font-size: 0.8em;
-    margin-bottom: 20px;;
-    color: #ABABAB;
-    text-align: center;
 }
 
 footer {
@@ -154,6 +126,10 @@ footer a {
 }
 
 /* Specific styles for the research page */
+.research {
+    background-color: #e3e0d1;
+}
+
 .research h1, h2 {
     font-weight: 600;
     font-size: 3em;
@@ -180,6 +156,9 @@ footer a {
 }
 
 /* Specific styles for the about page */
+.about {
+    background-color: #e3e0d1;
+}
 
 .about h1 {
     font-weight: 600;
@@ -187,6 +166,22 @@ footer a {
     color: #4a5e6a; /* Change the color of the text */
     text-align: center;
     margin: 0% auto 1% auto;
+}
+
+.about .profile-pic {
+    width: 50%;
+    max-width: 100%; /* Prevent the image from exceeding the container's width */
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.about .caption {
+    font-size: 1.0em;
+    margin-bottom: 20px;;
+    color: #949494;
+    text-align: center;
 }
 
 .about p {
