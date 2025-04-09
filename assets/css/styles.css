@@ -86,7 +86,7 @@ nav a:hover {
     min-height: 100vh; /* Make the div cover the full viewport height */
     box-sizing: border-box; /* Include padding and border in height calculations */
 }
-
+    
 main {
     flex: 1; /* This pushes the footer to the bottom */
     font-size: 1.2em;
@@ -96,12 +96,39 @@ main {
     justify-content: left;
 }
 
+@media (max-width: 700px) {
+    .background-image {
+        background: 
+            url('../images/background.png') no-repeat 85% center,
+            #e3e0d1;
+        background-size: 225% auto;
+    }
+}
+
 main .main-text {
     background-color: rgba(227, 224, 209, 0.7);
     color: #181818;
     text-align: justify;
     max-width: 30%;
     margin: 0;
+}
+
+@media (max-width: 700px) {
+    main {
+        /* flex: 1; /* This pushes the footer to the bottom */ */
+        font-size: 1.2em;
+        margin-left:  10%;
+        margin-top: 0%;
+        display: flex; /* Enable Flexbox */
+        flex-direction: column; /* Arrange children vertically */
+        justify-content: center;
+    }
+    main .main-text {
+        background-color: rgba(227, 224, 209, 0.8);
+        color: #101010;
+        text-align: justify;
+        max-width: 88.8%;
+    }
 }
 
 footer {
