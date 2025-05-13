@@ -164,6 +164,21 @@ footer a {
     text-align: center;
 }
 
+.research .density-gif {
+    width: 50%;
+    max-width: 100%; /* Prevent the image from exceeding the container's width */
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.research .caption {
+    font-size: 1.0em;
+    margin-bottom: 20px;;
+    color: #949494;
+    text-align: center;
+}
+
 .research h1 {
     margin: 0% auto 1% auto;
 }
