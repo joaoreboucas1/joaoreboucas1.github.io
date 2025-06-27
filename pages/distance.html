@@ -6,20 +6,34 @@
         <link rel="icon" href="../assets/images/prism.png" type="image/png">
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     </head>
-    <body class="about">
+    <body class="distance">
         <div class="back" style="text-align: left; margin: 20px 0;">
             <nav>
-                <a href="../index.html">
-                    < Back to Home
+                <a href="./educational.html">
+                    < Back to Educational
                 </a>
             </nav>
         </div>
         <h1>Distance Calculator</h1>
-        <div>
+
+        <div class="input-group">
+            <label for="H0">\( H_0 \) = </label>
+            <input class="paramInput" id="H0" value="70">
+        </div>
+        <div class="input-group">
+            <label for="Omegam">\( \Omega_m \) = </label>
+            <input class="paramInput" id="Omegam" value="0.3">
+        </div>
+        <div class="input-group">
+            <label for="OmegaLambda">\( \Omega_\Lambda \) = </label>
+            <input class="paramInput" id="OmegaLambda" value="0.7">
+        </div>
+
+        <button class="updateButton" id="updateButton">Update</button>
+        <div class="plot">
             <canvas id="plot"></canvas>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <button id="updateButton">Update</button>
         <script src="distance.js"></script>
     </body>
 </html>

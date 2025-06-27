@@ -8,12 +8,6 @@ function linspace(startValue, stopValue, cardinality) {
     return arr;
 }
 
-function randomizeData(data) {
-    for (let i = 0; i < DATA_COUNT; i++) {
-        data[i] = (Math.random());
-    }
-}
-
 function updateDistances() {
   for (var i = 0; i < redshifts.length; i++) {
     distances[i] = calcDistanceToZ(redshifts[i]);
@@ -21,13 +15,13 @@ function updateDistances() {
 }
 
 const c = 299_792.458;
-const H0 = 70;
-const h = H0/100;
-const Omega_m = 0.3;
-const Omega_r = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
 const Omega_nu = 0.0; // Massless neutrinos | TODO: fill Omega_nu for massless neutrinos
-const Omega_Lambda = 1 - Omega_m - Omega_r - Omega_nu;
-const Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r - Omega_nu;
+var H0 = 70;
+var Omega_m = 0.3;
+var Omega_Lambda = 0.7;
+var h = H0/100;
+var Omega_r = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
+var Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r - Omega_nu;
 
 const SK_TOL = 1e-8;
 function S_k(x) {
@@ -110,7 +104,7 @@ const config = {
         },
         ticks: {
           callback: function(value, index, ticks) {
-            return index % 5 === 0 ? this.getLabelForValue(value) : '';
+            return value % 0.5 === 0 ? this.getLabelForValue(value) : '';
           }
         }
       },
@@ -128,11 +122,27 @@ const config = {
   },
 };
 
-const ctx = document.getElementById('plot');
+var ctx = document.getElementById('plot');
 chart = new Chart(ctx, config);
+
+const H0Box = document.getElementById("H0");
+const OmegamBox = document.getElementById("Omegam");
+const OmegaLambdaBox = document.getElementById("OmegaLambda");
 
 var updateButton = document.getElementById("updateButton");
 updateButton.onclick = () => {
-    randomizeData(distances);
-    chart.update();
+  try {
+    H0 = parseFloat(H0Box.value);
+    Omega_m = parseFloat(OmegamBox.value);
+    Omega_Lambda = parseFloat(OmegaLambdaBox.value);
+  } catch {
+    console.log("ERROR: could not parse your inputs.")
+    return;
+  }
+  // Recalculate derived quantities
+  h = H0/100;
+  Omega_r = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
+  Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r - Omega_nu;
+  updateDistances();
+  chart.update();
 }
