@@ -1,16 +1,17 @@
 function linspace(startValue, stopValue, cardinality) {
     const step = (stopValue - startValue) / (cardinality - 1);
-    var arr = [];
     for (var i = 0; i < cardinality; i++) {
         var r = startValue + (step * i);
-        arr.push(parseFloat(r.toFixed(2)));
+        redshifts[i] = parseFloat(r.toFixed(2));
     }
-    return arr;
 }
 
 function updateDistances() {
   for (var i = 0; i < redshifts.length; i++) {
-    distances[i] = calcDistanceToZ(redshifts[i]);
+    linspace(0, zmax, DATA_COUNT);
+    comovingDistances[i] = calcDistanceToZ(redshifts[i]);
+    luminosityDistances[i] = (1 + redshifts[i])*comovingDistances[i];
+    angularDistances[i] = comovingDistances[i]/(1 + redshifts[i]);
   }
 }
 
@@ -22,6 +23,7 @@ var Omega_Lambda = 0.7;
 var h = H0/100;
 var Omega_r = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
 var Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r - Omega_nu;
+var zmax = 3;
 
 const SK_TOL = 1e-8;
 function S_k(x) {
@@ -55,8 +57,11 @@ function calcDistanceToZ(z) {
 }
 
 const DATA_COUNT = 100;
-const redshifts = linspace(0, 3, DATA_COUNT);
-var distances = new Array(DATA_COUNT);
+const redshifts = new Array(DATA_COUNT)
+linspace(0, zmax, DATA_COUNT);
+var comovingDistances = new Array(DATA_COUNT);
+var luminosityDistances = new Array(DATA_COUNT);
+var angularDistances = new Array(DATA_COUNT);
 updateDistances();
 
 const CHART_COLORS = {
@@ -69,65 +74,72 @@ const CHART_COLORS = {
   grey: 'rgb(201, 203, 207)'
 };
 
-const dataframe = {
-  labels: redshifts,
-  datasets: [
-    {
-      label: null,
-      data: distances,
-      borderColor: CHART_COLORS.red,
-      backgroundColor: CHART_COLORS.red,
-      pointStyle: false,
-    },
-  ]
-};
-
-const config = {
-  type: 'line',
-  data: dataframe,
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false,
+function dataframe_new(data, color) {
+  return {
+    labels: redshifts,
+    datasets: [
+      {
+        label: null,
+        data: data,
+        borderColor: color,
+        backgroundColor: color,
+        pointStyle: false,
       },
-      title: {
-        display: false,
-      }
-    },
-    scales: {
-      x: {
-        display: true,
-        title: {
+    ]
+  };
+}
+
+function config_new(data, color, yLabel) {
+  dataframe = dataframe_new(data, color);
+  return {
+    type: 'line',
+    data: dataframe,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false, },
+        title:  { display: false, }
+      },
+      scales: {
+        x: {
           display: true,
-          text: 'Redshift'
+          title: {
+            display: true,
+            text: 'Redshift'
+          },
+          ticks: { callback: function(value, index, ticks) { return value % 0.5 === 0 ? this.getLabelForValue(value) : ''; } }
         },
-        ticks: {
-          callback: function(value, index, ticks) {
-            return value % 0.5 === 0 ? this.getLabelForValue(value) : '';
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: yLabel,
+          },
+          ticks: {
+            format: { useGrouping: false },
           }
         }
-      },
-      y: {
-        display: true,
-        title: {
-          display: true,
-          text: 'Comoving Distance (Mpc)'
-        },
-        ticks: {
-          format: { useGrouping: false },
-        }
       }
-    }
-  },
-};
+    },
+  };
+}
 
-var ctx = document.getElementById('plot');
-chart = new Chart(ctx, config);
+const config1 = config_new(comovingDistances, CHART_COLORS.red, "Comoving Distance (Mpc)");
+const config2 = config_new(luminosityDistances, CHART_COLORS.green, "Luminosity Distance (Mpc)");
+const config3 = config_new(angularDistances, CHART_COLORS.blue, "Angular Diameter Distance (Mpc)");
+
+var ctx1 = document.getElementById('plotComoving');
+var ctx2 = document.getElementById('plotLuminosity');
+var ctx3 = document.getElementById('plotAngular');
+
+chart1 = new Chart(ctx1, config1);
+chart2 = new Chart(ctx2, config2);
+chart3 = new Chart(ctx3, config3);
 
 const H0Box = document.getElementById("H0");
 const OmegamBox = document.getElementById("Omegam");
 const OmegaLambdaBox = document.getElementById("OmegaLambda");
+const zMaxBox = document.getElementById("zMax");
 
 var updateButton = document.getElementById("updateButton");
 updateButton.onclick = () => {
@@ -135,6 +147,7 @@ updateButton.onclick = () => {
     H0 = parseFloat(H0Box.value);
     Omega_m = parseFloat(OmegamBox.value);
     Omega_Lambda = parseFloat(OmegaLambdaBox.value);
+    zmax = parseFloat(zMaxBox.value);
   } catch {
     console.log("ERROR: could not parse your inputs.")
     return;
@@ -144,5 +157,7 @@ updateButton.onclick = () => {
   Omega_r = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
   Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r - Omega_nu;
   updateDistances();
-  chart.update();
+  chart1.update();
+  chart2.update();
+  chart3.update();
 }

@@ -28,11 +28,22 @@
             <label for="OmegaLambda">\( \Omega_\Lambda \) = </label>
             <input class="paramInput" id="OmegaLambda" value="0.7">
         </div>
+        <div class="input-group">
+            <label for="zMax">\( z_\mathrm{max} \) = </label>
+            <input class="paramInput" id="zMax" value="3.0">
+        </div>
 
         <button class="updateButton" id="updateButton">Update</button>
         <div class="plot">
-            <canvas id="plot"></canvas>
+            <canvas id="plotComoving"></canvas>
         </div>
+        <div class="plot">
+            <canvas id="plotLuminosity"></canvas>
+        </div>
+        <div class="plot">
+            <canvas id="plotAngular"></canvas>
+        </div>
+        
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="distance.js"></script>
     </body>
