@@ -15,24 +15,33 @@
             </nav>
         </div>
         <h1>Distance Calculator</h1>
-
-        <div class="input-group">
-            <label for="H0">\( H_0 \) = </label>
-            <input class="paramInput" id="H0" value="70">
+        <p>Cosmological distances assuming the \( w_0w_a \)CDM model. Input the parameter values in the fields below and click on the "Update" button to recompute the distances. Hover your mouse over the plots to see the values. <a href="https://github.com/joaoreboucas1/joaoreboucas1.github.io/blob/main/pages/distance.js" target="_blank">[source code]</a></p>
+        <div class="input-columns">
+            <div class="input-group">
+                <label for="H0">\( H_0 \) = </label>
+                <input class="paramInput" id="H0" value="70">
+            </div>
+            <div class="input-group">
+                <label for="Omegam">\( \Omega_m \) = </label>
+                <input class="paramInput" id="Omegam" value="0.3">
+            </div>
+            <div class="input-group">
+                <label for="OmegaLambda">\( \Omega_\Lambda \) = </label>
+                <input class="paramInput" id="OmegaLambda" value="0.7">
+            </div>
+            <div class="input-group">
+                <label for="w">\( w \) = </label>
+                <input class="paramInput" id="w" value="-1">
+            </div>
+            <div class="input-group">
+                <label for="wa">\( w_a \) = </label>
+                <input class="paramInput" id="wa" value="0">
+            </div>
+            <div class="input-group">
+                <label for="zMax">\( z_\mathrm{max} \) = </label>
+                <input class="paramInput" id="zMax" value="3.0">
+            </div>
         </div>
-        <div class="input-group">
-            <label for="Omegam">\( \Omega_m \) = </label>
-            <input class="paramInput" id="Omegam" value="0.3">
-        </div>
-        <div class="input-group">
-            <label for="OmegaLambda">\( \Omega_\Lambda \) = </label>
-            <input class="paramInput" id="OmegaLambda" value="0.7">
-        </div>
-        <div class="input-group">
-            <label for="zMax">\( z_\mathrm{max} \) = </label>
-            <input class="paramInput" id="zMax" value="3.0">
-        </div>
-
         <button class="updateButton" id="updateButton">Update</button>
         <div class="plot">
             <canvas id="plotComoving"></canvas>

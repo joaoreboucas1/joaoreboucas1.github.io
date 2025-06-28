@@ -16,14 +16,17 @@ function updateDistances() {
 }
 
 const c = 299_792.458;
-const Omega_nu = 0.0; // Massless neutrinos | TODO: fill Omega_nu for massless neutrinos
 var H0 = 70;
 var Omega_m = 0.3;
 var Omega_Lambda = 0.7;
+var w = -1;
+var wa = 0;
 var h = H0/100;
-var Omega_r = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
-var Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r - Omega_nu;
-var zmax = 3;
+var Omega_gamma = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
+var Omega_nu = 1.68e-5/(h*h);    // Massless neutrinos
+var Omega_r = Omega_gamma + Omega_nu; // Radiation = photons + massless neutrinos
+var Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r;
+var zmax = 3; // Controls the upper limit of the plot
 
 const SK_TOL = 1e-8;
 function S_k(x) {
@@ -37,7 +40,7 @@ function S_k(x) {
 }
 
 function H_over_H0(z) {
-  return Math.sqrt((Omega_r + Omega_nu)*(1+z)**4 + Omega_m*(1+z)**3 + Omega_k*(1+z)**2 + Omega_Lambda);
+  return Math.sqrt(Omega_r*(1+z)**4 + Omega_m*(1+z)**3 + Omega_k*(1+z)**2 + Omega_Lambda*(1+z)**(-3*(1+w+wa))*Math.exp(-3*wa*z/(1+z)));
 }
 
 const TRAPZ_N = 200;
@@ -96,6 +99,10 @@ function config_new(data, color, yLabel) {
     data: dataframe,
     options: {
       responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
       plugins: {
         legend: { display: false, },
         title:  { display: false, }
@@ -105,18 +112,36 @@ function config_new(data, color, yLabel) {
           display: true,
           title: {
             display: true,
-            text: 'Redshift'
+            text: 'Redshift',
+            font: {
+              family: 'Inter',
+              size: 16,
+            }
           },
-          ticks: { callback: function(value, index, ticks) { return value % 0.5 === 0 ? this.getLabelForValue(value) : ''; } }
+          ticks: { 
+            callback: function(value, index, ticks) { return index % 10 === 0 ? this.getLabelForValue(value) : ''; },
+            font: {
+              family: 'Inter',
+              size: 14,
+            }
+          }
         },
         y: {
           display: true,
           title: {
             display: true,
             text: yLabel,
+            font: {
+              family: 'Inter',
+              size: 16,
+            }
           },
           ticks: {
             format: { useGrouping: false },
+            font: {
+              family: 'Inter',
+              size: 14,
+            }
           }
         }
       }
@@ -139,23 +164,28 @@ chart3 = new Chart(ctx3, config3);
 const H0Box = document.getElementById("H0");
 const OmegamBox = document.getElementById("Omegam");
 const OmegaLambdaBox = document.getElementById("OmegaLambda");
+const wBox = document.getElementById("w");
+const waBox = document.getElementById("wa");
 const zMaxBox = document.getElementById("zMax");
 
 var updateButton = document.getElementById("updateButton");
 updateButton.onclick = () => {
-  try {
-    H0 = parseFloat(H0Box.value);
-    Omega_m = parseFloat(OmegamBox.value);
-    Omega_Lambda = parseFloat(OmegaLambdaBox.value);
-    zmax = parseFloat(zMaxBox.value);
-  } catch {
-    console.log("ERROR: could not parse your inputs.")
+  H0 = parseFloat(H0Box.value);
+  Omega_m = parseFloat(OmegamBox.value);
+  Omega_Lambda = parseFloat(OmegaLambdaBox.value);
+  w = parseFloat(wBox.value);
+  wa = parseFloat(waBox.value);
+  zmax = parseFloat(zMaxBox.value);
+  if (isNaN(H0) || isNaN(Omega_m) || isNaN(Omega_Lambda) || isNaN(w) || isNaN(wa) || isNaN(zmax)) {
+    console.log("ERROR: could not parse your inputs.");
     return;
   }
   // Recalculate derived quantities
   h = H0/100;
-  Omega_r = 2.47e-5/(h*h); // Photons, Omegarh2 = 2.47e-5 (assuming T_CMB = 2.722K)
-  Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r - Omega_nu;
+  Omega_gamma = 2.47e-5/(h*h);
+  Omega_nu = 1.68e-5/(h*h);
+  Omega_r = Omega_gamma + Omega_nu;
+  Omega_k = 1 - Omega_m - Omega_Lambda - Omega_r;
   updateDistances();
   chart1.update();
   chart2.update();
