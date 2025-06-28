@@ -235,6 +235,66 @@ footer a {
     margin: 0 auto;
 }
 
+.educational h1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: #4a5e6a; /* Change the color of the text */
+    text-align: center;
+    margin: 0% auto 1% auto;
+}
+
+.educational li {
+    font-size: 1.15em;
+    font-weight: 400;
+    text-align: justify;
+    color: #181818; /* Change the color of the text */
+    width: 60%;
+    margin: 0 auto;
+}
+
+.educational p {
+    font-size: 1.15em;
+    font-weight: 400;
+    text-align: center;
+    color: #181818; /* Change the color of the text */
+    width: 60%;
+    margin: 0 auto;
+}
+
+.distance {
+    background-color: #e3e0d1;
+}
+
+.distance h1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: #4a5e6a; /* Change the color of the text */
+    text-align: center;
+    margin: 0% auto 1% auto;
+}
+
+.distance .plot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.distance .updateButton {
+    width: 120px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.distance .input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+}
+
 /* Styles for the back to home button, common to research and about */
 .back a {
     background: #4a5e6a; /* Default background color */
