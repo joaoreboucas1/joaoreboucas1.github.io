@@ -7,18 +7,19 @@ This repository contains the source code for an academic website dedicated to sh
 The project is organized as follows:
 
 ```
-academic-website
+joaoreboucas1.github.io
 ├── assets
 │   ├── css
 │   │   └── styles.css        # Styles for the website
 │   ├── js
-│   │   └── scripts.js        # JavaScript for interactivity
+│   │   ├── scripts.js        # JavaScript for interactivity
+│   │   └── ...               
 │   └── fonts                 # Custom font files
 ├── pages
 │   ├── about.html            # Information about João Rebouças
 │   ├── research.html         # Details on research interests and projects
-│   ├── publications.html      # List of academic publications
-│   └── contact.html          # Contact information and form
+│   ├── educational.html      # List of educational projects
+│   └── ...
 ├── index.html                # Main entry point of the website
 └── README.md                 # Project documentation
 ```
@@ -34,17 +35,15 @@ To set up and run the website locally, follow these steps:
 
 2. **Navigate to the project directory:**
    ```
-   cd academic-website
+   cd joaoreboucas1.github.io
    ```
 
-3. **Open `index.html` in your web browser:**
-   You can simply double-click the `index.html` file or open it through your browser's file menu.
+3. **Initialize an HTTP server:**
+   ```
+   npm run serve
+   ```
 
-## Customization
-
-- Modify the `assets/css/styles.css` file to change the visual appearance of the website.
-- Update the `assets/js/scripts.js` file to add or modify interactivity.
-- Edit the HTML files in the `pages` directory to update content related to your academic journey, research, publications, and contact information.
+4. **Open the page in your browser**
 
 ## License
 
