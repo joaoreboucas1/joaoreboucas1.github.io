@@ -21,16 +21,17 @@ joaoreboucas1.github.io
 │   ├── educational.html      # List of educational projects
 │   └── ...
 ├── index.html                # Main entry point of the website
+├── LICENSE
 └── README.md                 # Project documentation
 ```
 
-## Getting Started
+## Local hosting
 
 To set up and run the website locally, follow these steps:
 
 1. **Clone the repository:**
    ```
-   git clone <repository-url>
+   git clone https://github.com/joaoreboucas
    ```
 
 2. **Navigate to the project directory:**
@@ -39,11 +40,12 @@ To set up and run the website locally, follow these steps:
    ```
 
 3. **Initialize an HTTP server:**
-   ```
-   npm run serve
-   ```
+  ```
+  npm run serve
+  ```
 
 4. **Open the page in your browser**
+  Use the link `http://127.0.0.1/index.html`.
 
 ## License
 
