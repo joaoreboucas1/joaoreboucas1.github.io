@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Light.otf') format('opentype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.otf') format('opentype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Semibold.otf') format('opentype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Black.otf') format('opentype');
+    font-weight: 900;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    padding: 10px 0;
+}
+
+header h1 {
+    text-align: left;
+    margin-left: 10%;
+    color: #35424a;
+    font-weight: 600;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    background: #4a5e6a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+header nav ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin-left: 10%;
+    display: flex; /* Arrange items in a horizontal row */
+    justify-content: left; /* Center the items */
+    gap: 15px; /* Add spacing between items */
+}
+
+nav a:hover {
+    background: #e8491d;
+    color: #ffffff;
+}
+
+footer {
+    background: #35424a;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0px;
+    font-size: 0.9em; /* Increase the font size */
+}
+
+footer a {
+    font-size: 1.0em; /* Increase the font size */
+    padding: 10px 15px; /* Add padding for a larger clickable area */
+    color: #ffffff; /* Ensure the text color is white */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure proper spacing */
+    transition: transform 0.3s ease; /* Add a smooth zoom effect on hover */
+}
+
+.attribution {
+    font-size: 0.75em;
+}
+
+/* Styles for the back to home button, common to research and about */
+.back a {
+    background: #4a5e6a; /* Default background color */
+    color: #ffffff; /* Default text color */
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.back a:hover {
+    background: #e8491d;
+    color: #ffffff;
+}

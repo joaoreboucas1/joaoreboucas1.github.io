@@ -1,0 +1,25 @@
+body h1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: #4a5e6a; /* Change the color of the text */
+    text-align: center;
+    margin: 0 auto;
+}
+
+body li {
+    font-size: 1.15em;
+    font-weight: 400;
+    text-align: justify;
+    color: #181818; /* Change the color of the text */
+    width: 70%;
+    margin: 0 auto;
+}
+
+.educational-body p {
+    font-size: 1.15em;
+    font-weight: 400;
+    text-align: center;
+    color: #181818; /* Change the color of the text */
+    width: 60%;
+    margin: 0 auto;
+}

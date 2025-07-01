@@ -1,0 +1,38 @@
+/* Specific styles for the about page */
+body {
+    background-color: #e3e0d1;
+}
+
+body h1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: #4a5e6a; /* Change the color of the text */
+    text-align: center;
+    margin: 0% auto 1% auto;
+}
+
+body .profile-pic {
+    width: 30%;
+    max-width: 40%; /* Prevent the image from exceeding the container's width */
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+body .caption {
+    font-size: 1.0em;
+    margin-bottom: 20px;;
+    color: #949494;
+    text-align: center;
+}
+
+body .about-text {
+    font-size: 1.15em;
+    font-weight: 400;
+    text-align: justify;
+    color: #181818; /* Change the color of the text */
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
