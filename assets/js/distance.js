@@ -1,8 +1,7 @@
 function linspace(startValue, stopValue, cardinality) {
-    const step = (stopValue - startValue) / (cardinality - 1);
-    for (var i = 0; i < cardinality; i++) {
-        var r = startValue + (step * i);
-        redshifts[i] = parseFloat(r.toFixed(2));
+    const step = (stopValue - startValue) / (cardinality);
+    for (var i = 0; i < cardinality+1; i++) {
+        redshifts[i] = startValue + (step * i);;
     }
 }
 
@@ -61,7 +60,7 @@ function calcDistanceToZ(z) {
 
 const DATA_COUNT = 100;
 const redshifts = new Array(DATA_COUNT)
-linspace(0, zmax, DATA_COUNT);
+linspace(0, zmax, DATA_COUNT-1);
 var comovingDistances = new Array(DATA_COUNT);
 var luminosityDistances = new Array(DATA_COUNT);
 var angularDistances = new Array(DATA_COUNT);
@@ -119,7 +118,11 @@ function config_new(data, color, yLabel) {
             }
           },
           ticks: { 
-            callback: function(value, index, ticks) { return index % 10 === 0 ? this.getLabelForValue(value) : ''; },
+            callback: function(value, index, ticks) { 
+              console.log(`index: ${index} => redshift = ${redshifts[index]}`);
+              // console.log(`ticks: ${ticks}`);
+              return ((index % 10 === 0) || (index === 0)) ? redshifts[index].toFixed(2) : ''; 
+            },
             font: {
               family: 'Inter',
               size: 14,
@@ -170,6 +173,9 @@ const zMaxBox = document.getElementById("zMax");
 
 var updateButton = document.getElementById("updateButton");
 updateButton.onclick = () => {
+  for (let i = 0; i < DATA_COUNT; i++) {
+    console.log(`${i} => ${redshifts[i]}`);
+  }
   H0 = parseFloat(H0Box.value);
   Omega_m = parseFloat(OmegamBox.value);
   Omega_Lambda = parseFloat(OmegaLambdaBox.value);
