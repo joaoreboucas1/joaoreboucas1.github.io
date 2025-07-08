@@ -10,7 +10,7 @@ main {
 .background-image {
     background:
         url('../images/background.png') no-repeat center center,
-        linear-gradient(to left, #e3e0d1 50%, #d1cebb 50%); /* Gradient layer */
+        #d1cebb;
     background-size: contain;
     display: flex;
     flex-direction: column;
