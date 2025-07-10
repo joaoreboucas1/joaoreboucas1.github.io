@@ -14,13 +14,6 @@ body .density-gif {
     margin-bottom: 10px;
 }
 
-body .caption {
-    font-size: 1.0em;
-    margin-bottom: 20px;;
-    color: #949494;
-    text-align: center;
-}
-
 body h1 {
     margin: 0% auto 1% auto;
 }
@@ -37,4 +30,11 @@ body h2 {
     color: #181818; /* Change the color of the text */
     width: 70%;
     margin: 0 auto;
+}
+
+.research-body .caption {
+    font-size: 1.0em;
+    margin-bottom: 20px;;
+    color: #949494;
+    text-align: center;
 }
