@@ -10,7 +10,7 @@ main {
 .background-image {
     background:
         url('../images/background.png') no-repeat center center,
-        #d1cebb;
+        var(--color_bg);
     background-size: contain;
     display: flex;
     flex-direction: column;
@@ -21,9 +21,11 @@ main {
 
 
 main .main-text {
-    background-color: rgba(227, 224, 209, 0.7);
-    color: #181818;
+    background-color: var(--color_bg);
+    opacity: 0.9;
+    color: var(--color_footer);
     text-align: justify;
+    font-weight: 500;
     max-width: 30%;
     margin: 0;
 }
@@ -39,7 +41,6 @@ main .main-text {
         justify-content: center;
     }
     main .main-text {
-        background-color: rgba(227, 224, 209, 0.8);
         color: #101010;
         text-align: justify;
         max-width: 88.8%;
@@ -47,7 +48,7 @@ main .main-text {
     .background-image {
         background: 
             url('../images/background.png') no-repeat 85% center,
-            #e3e0d1;
+            var(--color_bg);
         background-size: 225% auto;
     }
 }

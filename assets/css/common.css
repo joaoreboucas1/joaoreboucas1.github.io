@@ -1,25 +1,24 @@
-@font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Light.otf') format('opentype');
-    font-weight: 300;
+:root {
+    /* Interesting values for color_1: */
+    /* --color_1: #4a5e6a; */
+    /* --color_1: #7f9b1a; */
+    /* --color_1: #121e6c; */
+    /* --color_1: #ae2284; */
+    --color_1: #6a7f1f;
+    --color_2: #e8491d;
+    --color_bg: #d1cebb;
+    --color_footer: #35424a;
+}
+
+::selection {
+    background: var(--color_1);
+    color: var(--color_bg);
 }
 
 @font-face {
     font-family: 'Inter';
     src: url('../fonts/Inter-Regular.otf') format('opentype');
     font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Semibold.otf') format('opentype');
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Black.otf') format('opentype');
-    font-weight: 900;
 }
 
 html, body {
@@ -32,10 +31,25 @@ html, body {
 
 body {
     font-family: 'Inter', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
     padding: 0;
-    background-color: #d1cebb;
+    background-color: var(--color_bg);
+}
+
+body h1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: var(--color_1); /* Change the color of the text */
+    text-align: center;
+    margin: 0% auto 1% auto;
+}
+
+body h2 {
+    font-weight: 600;
+    font-size: 3em;
+    color: var(--color_1); /* Change the color of the text */
+    text-align: center;
 }
 
 header {
@@ -45,8 +59,20 @@ header {
 header h1 {
     text-align: left;
     margin-left: 10%;
-    color: #35424a;
+    color: var(--color_1);
     font-weight: 600;
+}
+
+a:link {
+  color: var(--color_1);
+}
+
+a:visited {
+  color: var(--color_footer);
+}
+
+nav a:visited {
+    color: var(--color_bg);
 }
 
 nav {
@@ -54,8 +80,8 @@ nav {
 }
 
 nav a {
-    background: #4a5e6a;
-    color: #ffffff;
+    background: var(--color_1);
+    color: var(--color_bg);
     text-decoration: none;
     padding: 8px 10px;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
@@ -70,14 +96,20 @@ header nav ul {
     gap: 15px; /* Add spacing between items */
 }
 
+
+nav a:link {
+    background: var(--color_1);
+    color: var(--color_bg);
+}
+
 nav a:hover {
-    background: #e8491d;
-    color: #ffffff;
+    background: var(--color_2);
+    color: var(--color_bg);
 }
 
 footer {
-    background: #35424a;
-    color: #ffffff;
+    background: var(--color_footer);
+    color: var(--color_bg);
     text-align: center;
     position: relative;
     bottom: 0;
@@ -89,7 +121,7 @@ footer {
 footer a {
     font-size: 1.0em; /* Increase the font size */
     padding: 10px 15px; /* Add padding for a larger clickable area */
-    color: #ffffff; /* Ensure the text color is white */
+    color: var(--color_bg); /* Ensure the text color is white */
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Ensure proper spacing */
     transition: transform 0.3s ease; /* Add a smooth zoom effect on hover */
@@ -99,17 +131,16 @@ footer a {
     font-size: 0.75em;
 }
 
-/* Styles for the back to home button, common to research and about */
+.back a:hover {
+    background: var(--color_2);
+    color: var(--color_bg);
+}
+
 .back a {
-    background: #4a5e6a; /* Default background color */
-    color: #ffffff; /* Default text color */
+    background: var(--color_1); /* Default background color */
+    color: var(--color_bg); /* Default text color */
     text-decoration: none;
     padding: 10px 15px;
     display: inline-block;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-}
-
-.back a:hover {
-    background: #e8491d;
-    color: #ffffff;
 }

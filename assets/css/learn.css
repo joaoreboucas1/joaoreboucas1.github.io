@@ -1,11 +1,3 @@
-body h1 {
-    font-weight: 600;
-    font-size: 3em;
-    color: #4a5e6a; /* Change the color of the text */
-    text-align: center;
-    margin: 0 auto;
-}
-
 body li {
     font-size: 1.15em;
     font-weight: 400;
