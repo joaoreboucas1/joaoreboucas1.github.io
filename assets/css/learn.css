@@ -2,16 +2,15 @@ body li {
     font-size: 1.15em;
     font-weight: 400;
     text-align: justify;
-    color: #181818; /* Change the color of the text */
-    width: 70%;
-    margin: 0 auto;
+    color: #181818;
+    width: 50%;
+    margin: 10px auto;
 }
 
-.educational-body p {
+#intro {
     font-size: 1.15em;
     font-weight: 400;
     text-align: center;
-    color: #181818; /* Change the color of the text */
     width: 60%;
     margin: 0 auto;
 }

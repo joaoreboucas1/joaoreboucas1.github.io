@@ -23,9 +23,13 @@ body h2 {
     font-size: 1.15em;
     font-weight: 400;
     text-align: justify;
-    color: #181818; /* Change the color of the text */
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
+}
+
+.research-body li {
+    margin: 10px;
+    color: var(--color_text)
 }
 
 .research-body .caption {

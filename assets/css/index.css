@@ -23,7 +23,6 @@ main {
 main .main-text {
     background-color: var(--color_bg);
     opacity: 0.9;
-    color: var(--color_footer);
     text-align: justify;
     font-weight: 500;
     max-width: 30%;
