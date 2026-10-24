@@ -37,7 +37,7 @@ main .main-text {
         margin-top: 0%;
         display: flex; /* Enable Flexbox */
         flex-direction: column; /* Arrange children vertically */
-        justify-content: center;
+        justify-content: flex-start; /* Keep text right under the buttons */
     }
     main .main-text {
         color: #101010;
@@ -45,9 +45,6 @@ main .main-text {
         max-width: 88.8%;
     }
     .background-image {
-        background: 
-            url('../images/background.png') no-repeat 85% center,
-            var(--color_bg);
-        background-size: 225% auto;
+        background: var(--color_bg);
     }
 }

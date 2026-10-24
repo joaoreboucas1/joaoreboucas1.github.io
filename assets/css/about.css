@@ -1,7 +1,6 @@
 body .profile-pic {
     width: 30%;
     max-width: 40%; /* Prevent the image from exceeding the container's width */
-    border-radius: 50%;
     display: block;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -12,6 +11,9 @@ body .caption {
     margin-bottom: 20px;;
     color: #949494;
     text-align: center;
+    width: 60%; /* Same width as the text */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 body .about-text {
@@ -22,4 +24,14 @@ body .about-text {
     width: 60%;
     margin: 0 auto;
     margin-bottom: 3%;
+}
+
+@media (max-width: 700px) {
+    body .about-text, body .caption {
+        width: 90%; /* Use most of the screen width on mobile */
+    }
+    body .profile-pic {
+        width: 60%;
+        max-width: 60%;
+    }
 }

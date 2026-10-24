@@ -1,5 +1,5 @@
 body .density-gif {
-    width: 50%;
+    width: 60%; /* Same width as the text paragraphs */
     max-width: 100%; /* Prevent the image from exceeding the container's width */
     display: block;
     margin: 0 auto;
@@ -37,4 +37,11 @@ body h2 {
     margin-bottom: 20px;;
     color: #949494;
     text-align: center;
+}
+
+@media (max-width: 700px) {
+    /* Use most of the screen width on mobile, keeping the video as wide as the text */
+    .research-body p, .research-body ul, .research-body form, body .density-gif {
+        width: 90%;
+    }
 }
