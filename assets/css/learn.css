@@ -1,22 +1,78 @@
-body li {
-    font-size: 1.15em;
-    font-weight: 400;
-    text-align: justify;
-    color: #181818;
-    width: 50%;
-    margin: 10px auto;
-}
-
 #intro {
     font-size: 1.15em;
     font-weight: 400;
     text-align: center;
     width: 60%;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
+}
+
+.resources {
+    width: 60%;
+    margin: 0 auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resource {
+    border: 1px solid var(--color_1);
+    border-radius: 8px;
+    padding: 18px 22px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.resource .tags {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color_2);
+    margin: 0;
+}
+
+.resource h3 {
+    font-size: 1.4em;
+    color: var(--color_1);
+    margin: 4px 0 8px 0;
+    line-height: 1.3;
+}
+
+.resource p {
+    font-size: 1.1em;
+    text-align: justify;
+    margin: 0 0 12px 0;
+}
+
+.resource .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.resource .links a,
+.resource .links a:visited {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95em;
+    background: var(--color_1);
+    color: var(--color_bg);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.resource .links a:hover {
+    background: var(--color_2);
+}
+
+.resource .links i {
+    font-size: 0.8em;
+    margin-left: 4px;
 }
 
 @media (max-width: 700px) {
-    body li, #intro {
+    #intro, .resources {
         width: 90%; /* Use most of the screen width on mobile */
     }
 }

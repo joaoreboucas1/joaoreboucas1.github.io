@@ -93,6 +93,7 @@ nav {
 }
 
 nav a {
+    font-family: 'Space Grotesk', sans-serif;
     background: var(--color_1);
     color: var(--color_bg);
     text-decoration: none;
@@ -166,6 +167,7 @@ footer a.attribution:visited {
 }
 
 .back a {
+    font-family: 'Space Grotesk', sans-serif;
     background: var(--color_1); /* Default background color */
     color: var(--color_bg); /* Default text color */
     text-decoration: none;
