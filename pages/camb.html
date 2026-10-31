@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CAMB Online</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/camb.css">
+    <link rel="icon" href="../assets/images/prism.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+</head>
+
+<body>
+    <div class="back" style="text-align: left; margin: 20px 0;">
+        <nav>
+            <a href="learn">
+                < Back </a>
+        </nav>
+    </div>
+    <h1>CAMB Online</h1>
+    <p>The <a href="https://github.com/cmbant/CAMB" target="_blank">CAMB</a> Einstein-Boltzmann code, compiled from
+        Fortran to WebAssembly and running entirely in your browser. Input the \( \Lambda \)CDM parameter values below
+        and click on the "Add cosmology" button to compute the lensed CMB power spectra, the matter power spectrum at
+        \( z = 0 \) and the distance-redshift relations. Each cosmology joins the list below the button, where you can
+        rename it, choose its color or delete it, and the plots show all of them together. Hover your mouse over the plots to
+        see the values. <a href="https://github.com/joaoreboucas1/joaoreboucas1.github.io/blob/main/assets/js/camb.js"
+            target="_blank">[source code]</a></p>
+    <div class="input-columns">
+        <div class="input-group">
+            <label for="H0">\( H_0 \) = </label>
+            <input class="paramInput" id="H0" type="number" step="0.1" min="40" max="100" value="67.5">
+        </div>
+        <div class="input-group">
+            <label for="As">\( 10^9 A_s \) = </label>
+            <input class="paramInput" id="As" type="number" step="0.01" min="0.5" max="5" value="2.1">
+        </div>
+        <div class="input-group">
+            <label for="ombh2">\( \Omega_b h^2 \) = </label>
+            <input class="paramInput" id="ombh2" type="number" step="0.0001" min="0.005" max="0.1" value="0.022">
+        </div>
+        <div class="input-group">
+            <label for="ns">\( n_s \) = </label>
+            <input class="paramInput" id="ns" type="number" step="0.001" min="0.8" max="1.2" value="0.965">
+        </div>
+        <div class="input-group">
+            <label for="omch2">\( \Omega_c h^2 \) = </label>
+            <input class="paramInput" id="omch2" type="number" step="0.001" min="0.001" max="0.99" value="0.122">
+        </div>
+        <div class="input-group">
+            <label for="tau">\( \tau \) = </label>
+            <input class="paramInput" id="tau" type="number" step="0.001" min="0.01" max="0.8" value="0.055">
+        </div>
+        <div class="input-group">
+            <label for="mnu">\( \sum m_\nu \) [eV] = </label>
+            <input class="paramInput" id="mnu" type="number" step="0.01" min="0" max="5" value="0.06">
+        </div>
+        <div class="input-group">
+            <label for="YHe">\( Y_\mathrm{He} \) = </label>
+            <input class="paramInput" id="YHe" type="number" step="0.001" min="0.2" max="0.5" value="0.245">
+        </div>
+    </div>
+    <div class="input-group checkbox-group">
+        <input id="nonlinear" type="checkbox" checked>
+        <label for="nonlinear">Nonlinear matter power spectrum (HMcode)</label>
+    </div>
+    <button class="updateButton" id="updateButton" disabled>Loading CAMB…</button>
+    <p id="status"></p>
+    <ul id="cosmologyList"></ul>
+    <div class="plot" id="plotCls"></div>
+    <div class="plot" id="plotPk"></div>
+    <div class="plot" id="plotDA"></div>
+    <div class="plot" id="plotDL"></div>
+    <div class="plot" id="plotChi"></div>
+    <div class="plot" id="plotH"></div>
+
+    <script src="../assets/js/camb.js"></script>
+
+    <footer>
+        <p>
+            <a href="https://github.com/joaoreboucas1" target="_blank">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <i class="fa fa-envelope"></i> joaoreboucas@arizona.edu
+        </p>
+        <p>&copy; 2026 João Rebouças. All rights reserved.</p>
+        <a class="attribution" href="https://www.flaticon.com/free-icons/physics" title="physics icons">Physics icons
+            created by Freepik - Flaticon</a>
+    </footer>
+</body>
+
+</html>
